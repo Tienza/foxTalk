@@ -25,6 +25,8 @@ function insert_item($date) {
 	#Output SQL errors, if any
 	check_results($results);
 	
+	unset($_POST);
+	
     return $results;
 }
 
@@ -42,4 +44,61 @@ function check_results($results) {
 
   if($results != true)
     echo '<p>SQL ERROR = ' . mysqli_error( $dbc ) . '</p>';
+}
+
+function show_records($dbc) {
+    #$locations = get_locations();
+    
+	# Create a query to get location, title, date, category, and status, sorted by date
+    $query = 'SELECT * FROM submissions ORDER BY submit_date DESC';
+
+    # Execute the query
+    $results = mysqli_query( $dbc , $query );
+    
+    # Output SQL errors, if any
+    check_results($results);
+
+    # Show results, if query succeeded
+    if($results && mysqli_num_rows($results) > 0)
+    {	
+        echo "<table class=\"striped\">";
+		echo '<thead>';
+        echo '<tr>';
+        echo '<th>Title</th>';
+        echo '<th>Date</th>';
+		echo '</tr>';
+		echo '</th	ead>';
+		echo '<tbody>';
+
+        # For each row result, generate a table row
+        while ( $row = mysqli_fetch_array( $results , MYSQLI_ASSOC ) )
+        {
+            $date = format_date($row['submit_date'], "m/d/Y");
+            $title = $row['title'];
+            
+            echo '<tr>';
+            #echo '<td>' . '<a class="modal-trigger" href=index.php?id=' . $row['id'] . '>' . $row['title'] . '</a>' . '</td>';
+            echo '<td>' . $title . '</td>';
+            echo '<td>' . $date . '</td>';
+            #echo '<td>' . $category . '</td>';
+            #echo '<td>' . $row['status'] . '</td>';
+            echo '</tr>';
+        }
+		
+		echo '</tbody>';
+        # End the table
+        echo '</table>';
+    }
+    
+    else if(mysqli_num_rows($results) === 0)
+        echo '<script>$(document).ready(function() {$("#error").html("No results");});</script>';
+    
+    # Free up the results in memory
+    mysqli_free_result($results);
+}
+function format_date($date, $format) {
+    $date = strtotime($date);
+    $dateForView = date($format, $date);
+    
+    return $dateForView;
 }

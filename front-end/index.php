@@ -32,9 +32,13 @@
 				//reset $_POST variable
 				$_POST = array();
 			}
+			if($_SERVER['REQUEST_METHOD'] == 'GET') {
+				//reset $_POST variable
+				$_POST = array();
+			}
         ?>
     </head>
-    <body id="topPage" >
+    <body id="topPage">
         <nav class="navbar-fixed white" role="navigation">
             <div class="navbar-fixed white">
                 <nav>
@@ -112,9 +116,11 @@
                     <div class="col s12 center">
                         <h3><i class="mdi-content-send brown-text"></i></h3>
                         <h4 id="subTable">Top Suggestions</h4>
-                        <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-                    </div>
-                </div>
+                        <?php
+							show_records($dbc);
+						?>
+					</div>
+				</div>
                 <!--   Submitt Suggestions   -->
                 <div id="subForm"></br></br></br>
 					<?php
@@ -129,36 +135,35 @@
                             <form class="col s12" action="index.php" method="POST">
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input placeholder="Ex: John/Jane" required name="first_name" type="text" class="validate">
+                                        <input placeholder="Ex: John/Jane" required name="first_name" type="text" class="validate" value="<?php if(isset($_POST['first_name'])) echo $_POST['first_name']; ?>">
                                         <label for="first_name">First Name</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input placeholder="Ex: Doe" required name="last_name" type="text" class="validate">
+                                        <input placeholder="Ex: Doe" required name="last_name" type="text" class="validate" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
                                         <label for="last_name">Last Name</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input placeholder="Ex: 200XXXXX" required name="cwid" type="number" pattern=".{8,8}" class="validate">
+                                        <input placeholder="Ex: 200XXXXX" required name="cwid" type="number" pattern=".{8,8}" class="validate" value="<?php if(isset($_POST['cwid'])) echo $_POST['cwid']; ?>">
                                         <label for="cwid">CWID</label>
                                     </div>
                                 </div>
 								<div class="row">
                                     <div class="input-field col s6">
-                                        <input placeholder="Ex: Please wash cups properly" required name="title" type="text" class="validate">
+                                        <input placeholder="Ex: Please wash cups properly" required name="title" type="text" class="validate" value="<?php if(isset($_POST['title'])) echo $_POST['title']; ?>">
                                         <label for="cwid">Title</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea required name="description" class="materialize-textarea"></textarea>
+                                        <textarea required name="description" class="materialize-textarea" value="<?php if(isset($_POST['description'])) echo $_POST['description']; ?>"></textarea>
                                         <label for="description">Suggestion</label>
-										
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <select required name="department">
+                                        <select required name="department" value="<?php if(isset($_POST['department'])) echo $_POST['department']; ?>">
                                             <option value="" disabled selected>Choose your option</option>
                                             <option value="Dining">Dining</option>
                                             <option value="Housing">Housing</option>
@@ -170,7 +175,7 @@
                                         <label>Designated Department</label>
                                     </div>
                                     <div class="input-field col s6 right-align">
-                                        <button class="btn waves-effect red accent-4 waves-light" type="submit">Submit
+                                        <button class="btn waves-effect red accent-4 waves-light" type="submit" href="bounce.php">Submit
                                         <i class="material-icons right">send</i>
                                         </button>
                                     </div>
