@@ -163,7 +163,7 @@
                                             <option value="Dining">Dining</option>
                                             <option value="Housing">Housing</option>
                                             <option value="Registration">Registration</option>
-                                            <option value="Information Technology">Information Technology</option>
+                                            <option value="IT">Information Technology</option>
                                             <option value="Parking">Parking</option>
                                             <option value="Other">Other</option>
                                         </select>

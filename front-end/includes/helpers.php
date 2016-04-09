@@ -10,11 +10,12 @@ function insert_item($date) {
 	$fname = $_POST['first_name'];
 	$lname = $_POST['last_name'];
 	$cwid = $_POST['cwid'];
+	$title = $_POST['title'];
 	$description = $_POST['description'];
 	$dept = $_POST['department'];
 	
-    $query = "INSERT INTO submissions(uid, cwid, submit_date, title, description, submitter_fname, submitter_lname, department, status)"
-		   . " VALUES(1, $cwid, '$date', 'Placeholder', '$description', '$fname', '$lname', '$dept', 'Submitted')";
+    $query = "INSERT INTO submissions(cwid, submit_date, title, description, submitter_fname, submitter_lname, department, status)"
+		   . " VALUES($cwid, \"$date\", \"$title\", \"$description\", \"$fname\", \"$lname\", \"$dept\", \"Submitted\")";
 	#Show query if debugging is enabled (at the top of this file)
     show_query($query);
 
