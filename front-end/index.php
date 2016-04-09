@@ -125,7 +125,6 @@
                 <div class="row">
                     <div class="col s12">
                         <h4 class="center-align" id="subTable">Talk To Us</h4>
-                        <hr>
                         <div class="row">
                             <form class="col s12" action="index.php" method="POST">
                                 <div class="row">
@@ -140,8 +139,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input placeholder="Ex: 200XXXXX" required name="cwid" type="number" minlength="8" maxlength="8" class="validate">
+                                        <input placeholder="Ex: 200XXXXX" required name="cwid" type="number" pattern=".{8,8}" class="validate">
                                         <label for="cwid">CWID</label>
+                                    </div>
+                                </div>
+								<div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="Ex: Please wash cups properly" required name="title" type="text" class="validate">
+                                        <label for="cwid">Title</label>
                                     </div>
                                 </div>
                                 <div class="row">
