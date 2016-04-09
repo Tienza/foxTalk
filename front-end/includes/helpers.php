@@ -46,11 +46,19 @@ function check_results($results) {
     echo '<p>SQL ERROR = ' . mysqli_error( $dbc ) . '</p>';
 }
 
+# Send an up vote to the thingy
+function up_vote($dbc, $sid){
+	global $dbc;
+	
+	# Queries the database for the currect vote value
+	$query = 'SELECT vote FROM submissions WHERE id =' . $sid;
+}
+
 function show_records($dbc) {
     #$locations = get_locations();
     
 	# Create a query to get title, date, and status, sorted by date
-    $query = 'SELECT * FROM submissions ORDER BY submit_date DESC LIMIT 10';
+    $query = 'SELECT * FROM submissions ORDER BY vote DESC LIMIT 10';
 
     # Execute the query
     $results = mysqli_query( $dbc , $query );
@@ -70,7 +78,7 @@ function show_records($dbc) {
 					echo '<div><span><b>Suggestion: </b></span>' . $row['description'] . '</div></br>';
 					echo '<div><span><b>Department: </b></span>' . $row['department'] . '</div></br>';
 					echo '<div><span><b>Status: </b></span>' . $row['status'] . '</div></br>';
-					echo '<div style="text-align:right;vertical-align:top"><a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">thumb_up</i></a></div>';
+					echo '<div style="text-align:right;vertical-align:top"><a class="btn-floating btn-large waves-effect waves-light red" value=' . $row['sid'] . '><i class="material-icons">thumb_up</i></a><span style="color:blue"> ' . $row['vote'] . '</span></div>';
 					echo '</div>';
 				echo '</li>';
 			}
