@@ -47,11 +47,32 @@ function check_results($results) {
 }
 
 # Send an up vote to the thingy
-function up_vote($dbc, $sid){
+function up_vote($sid){
 	global $dbc;
 	
 	# Queries the database for the currect vote value
-	$query = 'SELECT vote FROM submissions WHERE id =' . $sid;
+	$query = 'SELECT vote FROM submissions WHERE sid =' . $sid;
+	
+	# Execute the query
+    $results = mysqli_query( $dbc , $query );
+	
+    check_results($results);
+	
+	if($results && mysqli_num_rows($results) > 0) {
+		echo '<div>Fuck</div>';
+		while ( $row = mysqli_fetch_array($results , MYSQLI_ASSOC )){
+			$currVote = $row ['vote'];
+			$currVote++;
+			
+			echo "<div>New vote count = $currVote</div>";
+			
+			$query2 = 'UPDATE submissions SET vote = ' . $currVote . ' WHERE sid = ' . $sid;
+			show_query($query2);
+			
+			$res = mysqli_query($dbc, $query2);
+			check_results($res);
+		}
+	} 
 }
 
 function show_records($dbc) {
@@ -78,7 +99,7 @@ function show_records($dbc) {
 					echo '<div><span><b>Suggestion: </b></span>' . $row['description'] . '</div></br>';
 					echo '<div><span><b>Department: </b></span>' . $row['department'] . '</div></br>';
 					echo '<div><span><b>Status: </b></span>' . $row['status'] . '</div></br>';
-					echo '<div style="text-align:right;vertical-align:top"><a class="btn-floating btn-large waves-effect waves-light red" value=' . $row['sid'] . '><i class="material-icons">thumb_up</i></a><span style="color:blue"> ' . $row['vote'] . '</span></div>';
+					echo '<div style="text-align:right;vertical-align:top"><a class="btn-floating btn-large waves-effect waves-light red" href="includes/increment.php?id=' . $row['sid'] . '"><i class="material-icons">thumb_up</i></a><span style="color:blue"> ' . $row['vote'] . '</span></div>';
 					echo '</div>';
 				echo '</li>';
 			}
