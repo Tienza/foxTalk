@@ -39,15 +39,21 @@
         ?>
     </head>
     <body id="topPage">
-  <!-- Modal Structure -->
+  <!-- Modal Structure
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      
+      <h4>Suggestion Details</h4>
+	  <p>
+		<?php
+            if(isset($_GET['sid']))
+                show_record($_GET['sid']);
+		?>
+	  </p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+      <a id="modalClose" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
     </div>
-  </div>
+  </div>-->
         <nav class="navbar-fixed white" role="navigation">
             <div class="navbar-fixed white">
                 <nav>
@@ -269,6 +275,11 @@
             $(".button-collapse").sideNav();
 			$('.modal-trigger').leanModal();
             });
+			// Display suggestion detail modal if window contains "sid?=" and an sid number
+            var str = window.location.href;
+                
+            /*if(str.indexOf("?sid=") > -1)
+                $('#modal1').openModal();*/
             $("#top").click(function() {
             $('html, body').animate({
             scrollTop: $("#topPage").offset().top
@@ -307,6 +318,11 @@
             $(".side-nav #button3").click(function() {
             $('html, body').animate({
             scrollTop: $("#subForm").offset().top
+            }, 500);
+            });
+			$(".modal-action modal-close waves-effect waves-green btn-flat #modalClose").click(function() {
+            $('html, body').animate({
+            scrollTop: $("#subTable").offset().top
             }, 500);
             });
         </script>

@@ -61,7 +61,16 @@ function show_records($dbc) {
     # Show results, if query succeeded
     if($results && mysqli_num_rows($results) > 0)
     {	
-        echo "<table class=\"striped\">";
+		echo '<ul class="collapsible" data-collapsible="accordion">';
+			while ( $row = mysqli_fetch_array($results , MYSQLI_ASSOC )){
+				$date = format_date($row['submit_date'], "m/d/Y");
+				echo '<li>';
+					echo '<div style="text-align:left;vertical-align:top" class="collapsible-header">' . $row['title'] .'</div>';
+					echo '<div style="text-align:left;vertical-align:top" class="collapsible-body card-panel grey"><p>' . $row['description'] . '</p></div>';
+				echo '</li>';
+			}
+		echo '</ul>';
+        /*echo "<table class=\"striped\">";
 		echo '<thead>';
         echo '<tr>';
         echo '<th>Title</th>';
@@ -77,8 +86,8 @@ function show_records($dbc) {
             $title = $row['title'];
             
             echo '<tr>';
-            #echo '<td>' . '<a class="modal-trigger" href=index.php?id=' . $row['id'] . '>' . $row['title'] . '</a>' . '</td>';
-            echo '<td>' . $title . '</td>';
+            echo '<td>' . '<a class="modal-trigger" href=index.php?sid=' . $row['sid'] . '>' . $title . '</a>' . '</td>';
+            #echo '<td>' . $title . '</td>';
             echo '<td>' . $date . '</td>';
             #echo '<td>' . $category . '</td>';
             #echo '<td>' . $row['status'] . '</td>';
@@ -87,7 +96,7 @@ function show_records($dbc) {
 		
 		echo '</tbody>';
         # End the table
-        echo '</table>';
+        echo '</table>';*/
     }
     
     else if(mysqli_num_rows($results) === 0)
@@ -96,6 +105,52 @@ function show_records($dbc) {
     # Free up the results in memory
     mysqli_free_result($results);
 }
+
+# Shows a single record
+function show_record($sid) {
+	global $dbc;
+    
+    if(is_numeric($sid))
+        $query = 'SELECT * FROM submissions WHERE sid=' . $sid;
+    else
+        return false;
+    
+    $results = mysqli_query($dbc, $query);
+    check_results($results);
+    
+    if($results) {
+		echo '<div class="row">';
+			echo '<div class="col s6">';
+				echo '<table>';
+					while($row = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
+						echo '<tr>';
+							echo '<td style="text-align:left;vertical-align:top"><b>Title:</b></td>';
+							echo '<td style="text-align:left;vertical-align:top">' . $row['title'] . '</td>';
+						echo '</tr>';
+						
+						echo '<tr>';
+							echo '<td style="text-align:left;vertical-align:top"><b>Description:</b></td>';
+							echo '<td style="text-align:left;vertical-align:top">' . $row['description'] . '</td>';
+						echo '</tr>';
+						
+						echo '<tr>';
+							echo '<td style="text-align:left;vertical-align:top"><b>Department:</b></td>';
+							echo '<td style="text-align:left;vertical-align:top">' . $row['department'] . '</td>';
+						echo '</tr>';
+						
+						echo '<tr>';
+							echo '<td style="text-align:left;vertical-align:top"><b>Status:</b></td>';
+							echo '<td style="text-align:left;vertical-align:top">' . $row['status'] . '</td>';
+						echo '</tr>';
+					}
+				echo '</table>';
+			echo '</div>';
+		echo '</div>';
+	}
+	
+	mysqli_free_result($results);
+}
+
 function format_date($date, $format) {
     $date = strtotime($date);
     $dateForView = date($format, $date);
