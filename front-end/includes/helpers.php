@@ -49,8 +49,8 @@ function check_results($results) {
 function show_records($dbc) {
     #$locations = get_locations();
     
-	# Create a query to get location, title, date, category, and status, sorted by date
-    $query = 'SELECT * FROM submissions ORDER BY submit_date DESC';
+	# Create a query to get title, date, and status, sorted by date
+    $query = 'SELECT * FROM submissions ORDER BY submit_date DESC LIMIT 10';
 
     # Execute the query
     $results = mysqli_query( $dbc , $query );
@@ -65,8 +65,12 @@ function show_records($dbc) {
 			while ( $row = mysqli_fetch_array($results , MYSQLI_ASSOC )){
 				$date = format_date($row['submit_date'], "m/d/Y");
 				echo '<li>';
-					echo '<div style="text-align:left;vertical-align:top" class="collapsible-header">' . $row['title'] .'</div>';
-					echo '<div style="text-align:left;vertical-align:top" class="collapsible-body card-panel grey"><p>' . $row['description'] . '</p></div>';
+					echo '<div style="text-align:left;vertical-align:top" class="collapsible-header"><b>' . $row['title'] .'</b></div>';
+					echo '<div style="text-align:left;vertical-align:top" class="collapsible-body card-panel grey">';
+					echo '<div><span><b>Suggestion: </b></span>' . $row['description'] . '</div></br>';
+					echo '<div><span><b>Department: </b></span>' . $row['department'] . '</div></br>';
+					echo '<div><span><b>Status: </b></span>' . $row['status'] . '</div></br>';
+					echo '</div>';
 				echo '</li>';
 			}
 		echo '</ul>';
