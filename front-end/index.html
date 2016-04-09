@@ -10,7 +10,16 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <script></script>
+        <style>
+			#seal {
+				user-drag: none; 
+				user-select: none;
+				-moz-user-select: none;
+				-webkit-user-drag: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+			}
+		</style>
     </head>
     <body id="topPage" >
         <nav class="navbar-fixed white" role="navigation">
@@ -46,7 +55,7 @@
                 <div class="container">
                     <br><br>
                     <!--<h1 class="header center teal-text text-lighten-2">Parallax Template</h1>-->
-					<p class="center-align"><img src="images/50%.png"></p>
+					<p class="center-align"><img id="seal" src="images/50%.png"></p>
                     <div class="row center">
                         <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
                     </div>
