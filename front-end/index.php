@@ -54,7 +54,7 @@
                 <div class="container">
                     <br><br>
                     <!--<h1 class="header center teal-text text-lighten-2">Parallax Template</h1>-->
-                    <p class="center-align"><img id="seal" src="images/50%.png"></p>
+                    <p class="center-align"><img id="seal" src="images/logo.png"></p>
                     <div class="row center">
                         <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
                     </div>
