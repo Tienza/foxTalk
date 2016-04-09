@@ -16,9 +16,10 @@ USE foxTalkDB;
 CREATE TABLE IF NOT EXISTS submissions (
     sid              INT AUTO_INCREMENT PRIMARY KEY,
     uid              INT UNIQUE NOT NULL,
-    submit_date      DATETIME NOT NULL,
-    title            TEXT     NOT NULL,
-    description      TEXT     NOT NULL,
+	cwid			 INT        NOT NULL,
+    submit_date      DATETIME   NOT NULL,
+    title            TEXT       NOT NULL,
+    description      TEXT       NOT NULL,
     submitter_fname  TEXT,
     submitter_lname  TEXT,
     department       SET("Dining", "Housing", "IT", "Parking", "Registration", "Other") NOT NULL,

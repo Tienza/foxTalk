@@ -20,6 +20,19 @@
             -ms-user-select: none;
             }
         </style>
+        <?php
+            require('includes/helpers.php');
+            require('includes/connect_db.php');
+            
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+				//insert
+				insert_item(date('Y-m-d H:i:s'));
+				//echo '<script>$(document).ready(function () {$("#success").html("Success! Your suggestion has been submitted.");});</script>';
+				
+				//reset $_POST variable
+				$_POST = array();
+			}
+        ?>
     </head>
     <body id="topPage" >
         <nav class="navbar-fixed white" role="navigation">
@@ -103,38 +116,44 @@
                     </div>
                 </div>
                 <!--   Submitt Suggestions   -->
-                <div id="subForm"></br></br></br></div>
+                <div id="subForm"></br></br></br>
+					<?php
+                        foreach($_POST as $key => $value)
+                            echo "<p>$key: $value</p>";
+					?>
+				</div>
                 <div class="row">
                     <div class="col s12">
                         <h4 class="center-align" id="subTable">Talk To Us</h4>
                         <hr>
                         <div class="row">
-                            <form class="col s12">
+                            <form class="col s12" action="index.php" method="POST">
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input placeholder="Ex: John/Jane" id="first_name" type="text" class="validate">
+                                        <input placeholder="Ex: John/Jane" required name="first_name" type="text" class="validate">
                                         <label for="first_name">First Name</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input placeholder="Ex: Doe" id="last_name" type="text" class="validate">
+                                        <input placeholder="Ex: Doe" required name="last_name" type="text" class="validate">
                                         <label for="last_name">Last Name</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input placeholder="Ex: 200XXXXX" id="cwid" type="number" maxlength="8" class="validate">
+                                        <input placeholder="Ex: 200XXXXX" required name="cwid" type="number" minlength="8" maxlength="8" class="validate">
                                         <label for="cwid">CWID</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                        <label for="textarea1">Suggestion</label>
+                                        <textarea required name="description" class="materialize-textarea"></textarea>
+                                        <label for="description">Suggestion</label>
+										
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <select>
+                                        <select required name="department">
                                             <option value="" disabled selected>Choose your option</option>
                                             <option value="Dining">Dining</option>
                                             <option value="Housing">Housing</option>
@@ -146,7 +165,7 @@
                                         <label>Designated Department</label>
                                     </div>
                                     <div class="input-field col s6 right-align">
-                                        <button class="btn waves-effect red accent-4 waves-light" type="submit" name="action">Submit
+                                        <button class="btn waves-effect red accent-4 waves-light" type="submit">Submit
                                         <i class="material-icons right">send</i>
                                         </button>
                                     </div>
