@@ -12,12 +12,12 @@
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <style>
             #seal {
-            user-drag: none; 
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-drag: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
+				user-drag: none; 
+				user-select: none;
+				-moz-user-select: none;
+				-webkit-user-drag: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
             }
         </style>
         <?php
