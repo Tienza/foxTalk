@@ -12,21 +12,35 @@
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <script></script>
     </head>
-    <body>
+    <body id="topPage" >
         <nav class="navbar-fixed white" role="navigation">
             <div class="navbar-fixed white">
                 <nav>
                     <div class="nav-wrapper container">
                         <a href="#!" class="brand-logo">Fox Talk</a>
-                        <ul class="right hide-on-med-and-down">
+                        <!--<ul class="right hide-on-med-and-down">
                             <li><a id="button">What are we?</a></li>
                             <li><a id="button2">View Suggestions</a></li>
                             <li><a id="button3">Submit Suggestion</a></li>
-                        </ul>
+                        </ul>-->
+						<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+		<li><a id="top">Top</a></li>
+        <li><a id="button">What are we?</a></li>
+        <li><a id="button2">View Suggestions</a></li>
+        <li><a id="button3">Submit Suggestion</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+		<li><a id="top">Top</a></li>
+        <li><a id="button">What are we?</a></li>
+        <li><a id="button2">View Suggestions</a></li>
+        <li><a id="button3">Submit Suggestion</a></li>
+      </ul>
                     </div>
                 </nav>
             </div>
         </nav>
+		
         <div id="index-banner" class="parallax-container">
             <div class="section no-pad-bot">
                 <div class="container">
@@ -202,8 +216,24 @@
         <script>
             $(document).ready(function() {
 				$('select').material_select();
+				$(".button-collapse").sideNav();
             });
+			$("#top").click(function() {
+				$('html, body').animate({
+				scrollTop: $("#topPage").offset().top
+				}, 500);
+			});
+			$(".side-nav #top").click(function() {
+				$('html, body').animate({
+				scrollTop: $("#topPage").offset().top
+				}, 500);
+			});
 			$("#button").click(function() {
+				$('html, body').animate({
+				scrollTop: $("#aboutUs").offset().top
+				}, 500);
+			});
+			$(".side-nav #button").click(function() {
 				$('html, body').animate({
 				scrollTop: $("#aboutUs").offset().top
 				}, 500);
@@ -213,7 +243,17 @@
 				scrollTop: $("#subTable").offset().top
 				}, 500);
 			});
+			$(".side-nav #button2").click(function() {
+				$('html, body').animate({
+				scrollTop: $("#subTable").offset().top
+				}, 500);
+			});
 			$("#button3").click(function() {
+				$('html, body').animate({
+				scrollTop: $("#subForm").offset().top
+				}, 500);
+			});
+			$(".side-nav #button3").click(function() {
 				$('html, body').animate({
 				scrollTop: $("#subForm").offset().top
 				}, 500);
