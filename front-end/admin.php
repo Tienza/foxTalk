@@ -48,7 +48,7 @@
 	  <p>
 		<?php
             if(isset($_GET['sid']))
-                show_record($_GET['sid']);
+                show_admin_record($_GET['sid']);
 		?>
 	  </p>
     </div>
@@ -116,6 +116,9 @@
                     <div class="col s12 center">
                         <h3><i class="mdi-content-send brown-text"></i></h3>
                         <h4>Top Suggestions</h4>
+						<?php
+							show_top_admin_records($dbc);
+						?>
 					</div>
 				</div>
                 <!--   View Submissions   -->
@@ -124,6 +127,9 @@
                     <div class="col s12 center">
                         <h3><i class="mdi-content-send brown-text"></i></h3>
                         <h4>All Suggestions</h4>
+						<?php
+							show_admin_records($dbc);
+						?>
 					</div>
 				</div>
                 <!--   Submitt Suggestions   -->
