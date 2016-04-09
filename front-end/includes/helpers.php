@@ -59,7 +59,6 @@ function up_vote($sid){
     check_results($results);
 	
 	if($results && mysqli_num_rows($results) > 0) {
-		echo '<div>Fuck</div>';
 		while ( $row = mysqli_fetch_array($results , MYSQLI_ASSOC )){
 			$currVote = $row ['vote'];
 			$currVote++;
