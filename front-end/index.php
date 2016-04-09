@@ -31,6 +31,8 @@
 				
 				//reset $_POST variable
 				$_POST = array();
+				header("location: bounce.php");
+
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'GET') {
 				//reset $_POST variable
@@ -84,7 +86,9 @@
         <div id="index-banner" class="parallax-container">
 			<div class="section no-pad-bot">
                 <div class="container">
+					<br><br>
 				    <p class="center-align"><img id="seal" src="images/logo.png"></p>
+					<h1 class="header center red-text text-darken-2">Marist Fox Talk</h1>
                     <br><br>
                 </div>
             </div>
@@ -196,7 +200,7 @@
                                         <label>Designated Department</label>
                                     </div>
                                     <div class="input-field col s6 right-align">
-                                        <button class="btn waves-effect red accent-4 waves-light" type="submit" href="bounce.php">Submit
+                                        <button class="btn waves-effect red accent-4 waves-light" type="submit">Submit
                                         <i class="material-icons right">send</i>
                                         </button>
                                     </div>
