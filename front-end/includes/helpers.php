@@ -70,6 +70,7 @@ function show_records($dbc) {
 					echo '<div><span><b>Suggestion: </b></span>' . $row['description'] . '</div></br>';
 					echo '<div><span><b>Department: </b></span>' . $row['department'] . '</div></br>';
 					echo '<div><span><b>Status: </b></span>' . $row['status'] . '</div></br>';
+					echo '<div style="text-align:right;vertical-align:top"><a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">thumb_up</i></a></div>';
 					echo '</div>';
 				echo '</li>';
 			}
