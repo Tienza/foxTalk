@@ -82,10 +82,16 @@
             </div>
         </nav>
         <div id="index-banner" class="parallax-container">
-            <div class="section no-pad-bot">
+			<div class="section no-pad-bot">
+                <div class="container">
+				    <p class="center-align"><img id="seal" src="images/logo.png"></p>
+                    <br><br>
+                </div>
+            </div>
+            <!--<div class="section no-pad-bot">
                 <div class="container">
                     <br><br>
-                    <!--<h1 class="header center teal-text text-lighten-2">Parallax Template</h1>-->
+                    <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
                     <p class="center-align"><img id="seal" src="images/logo.png"></p>
                     <div class="row center">
                         <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
@@ -95,7 +101,7 @@
                     </div>
                     <br><br>
                 </div>
-            </div>
+            </div>-->
             <div class="parallax"><img src="images/rotunda.jpg" alt="Unsplashed background img 1"></div>
         </div>
         <div class="container">
@@ -105,23 +111,23 @@
                 <div class="row">
                     <div class="col s12 m4">
                         <div class="icon-block">
-                            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-                            <h5 class="center">Speeds up development</h5>
-                            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                            <h2 class="center brown-text"><i class="material-icons">add</i></h2>
+                            <h5 class="center">Submission</h5>
+                            <p class="light">Submit any suggestions you have, and they will be made visible to both the student body and the school administrators.</p>
                         </div>
                     </div>
                     <div class="col s12 m4">
                         <div class="icon-block">
-                            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">User Experience Focused</h5>
-                            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                            <h2 class="center brown-text"><i class="material-icons">assignment</i></h2>
+                            <h5 class="center">Review</h5>
+                            <p class="light">View the other submissions made by other students.</p>
                         </div>
                     </div>
                     <div class="col s12 m4">
                         <div class="icon-block">
-                            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-                            <h5 class="center">Easy to work with</h5>
-                            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                            <h2 class="center brown-text"><i class="material-icons">done</i></h2>
+                            <h5 class="center">Implementation</h5>
+                            <p class="light">Get email updates on the status of your suggestions. Help make your school a better place.</p>
                         </div>
                     </div>
                 </div>
@@ -226,7 +232,7 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <div class="row center">
-                        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                        <h5 class="header col s12 light"></h5>
                     </div>
                 </div>
             </div>
@@ -259,11 +265,11 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-copyright">
+            <!--<div class="footer-copyright">
                 <div class="container">
                     Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
                 </div>
-            </div>
+            </div>-->
         </footer>
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
