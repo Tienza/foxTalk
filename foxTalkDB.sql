@@ -15,13 +15,16 @@ USE foxTalkDB;
 -- Create the Submissions table
 CREATE TABLE IF NOT EXISTS submissions (
     sid              INT AUTO_INCREMENT PRIMARY KEY,
+    uid              INT UNIQUE NOT NULL,
     submit_date      DATETIME NOT NULL,
     title            TEXT     NOT NULL,
     description      TEXT     NOT NULL,
     submitter_fname  TEXT,
     submitter_lname  TEXT,
-    department       SET("Dining", "Housing", "IT", "Registration", "Other") NOT NULL,
-    status           SET("Submitted", "Under Review", "Approved", "Rejected") NOT NULL
+    department       SET("Dining", "Housing", "IT", "Parking", "Registration", "Other") NOT NULL,
+    status           SET("Submitted", "Under Review", "Approved", "Rejected") NOT NULL,
+    FOREIGN KEY(uid)
+        REFERENCES users(uid)
 );
 
 -- Create the Users table
