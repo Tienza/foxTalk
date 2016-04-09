@@ -39,6 +39,15 @@
         ?>
     </head>
     <body id="topPage">
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div>
         <nav class="navbar-fixed white" role="navigation">
             <div class="navbar-fixed white">
                 <nav>
@@ -258,6 +267,7 @@
             $(document).ready(function() {
             $('select').material_select();
             $(".button-collapse").sideNav();
+			$('.modal-trigger').leanModal();
             });
             $("#top").click(function() {
             $('html, body').animate({
