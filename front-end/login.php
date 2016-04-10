@@ -126,7 +126,7 @@ and open the template in the editor.
             <nav class="top-nav">
                 <div class="container">
                     <div class="nav-wrapper">
-                        <a class="page-title" id="title">FoxTalk Administrator Database</a>
+                        <a class="page-title" id="title">FoxTalk Management Portal</a>
                     </div>
                 </div>
             </nav>

@@ -41,31 +41,11 @@
         ?>
     </head>
     <body id="topPage">
-  <!-- Modal Structure
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Suggestion Details</h4>
-	  <p>
-		<?php
-            if(isset($_GET['sid']))
-                show_record($_GET['sid']);
-		?>
-	  </p>
-    </div>
-    <div class="modal-footer">
-      <a id="modalClose" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
-    </div>
-  </div>-->
         <nav class="navbar-fixed white" role="navigation">
             <div class="navbar-fixed white">
                 <nav>
                     <div class="nav-wrapper container">
                         <a href="#!" class="brand-logo">FoxTalk</a>
-                        <!--<ul class="right hide-on-med-and-down">
-                            <li><a id="button">What are we?</a></li>
-                            <li><a id="button2">View Suggestions</a></li>
-                            <li><a id="button3">Submit Suggestion</a></li>
-                            </ul>-->
                         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                         <ul class="right hide-on-med-and-down">
                             <li><a id="top">Top</a></li>
@@ -92,20 +72,6 @@
                     <br><br>
                 </div>
             </div>
-            <!--<div class="section no-pad-bot">
-                <div class="container">
-                    <br><br>
-                    <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
-                    <p class="center-align"><img id="seal" src="images/logo.png"></p>
-                    <div class="row center">
-                        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-                    </div>
-                    <div class="row center">
-                        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-                    </div>
-                    <br><br>
-                </div>
-            </div>-->
             <div class="parallax"><img src="images/rotunda.jpg" alt="Unsplashed background img 1"></div>
         </div>
         <div class="container">
@@ -117,21 +83,21 @@
                         <div class="icon-block">
                             <h2 class="center brown-text"><i class="material-icons">add</i></h2>
                             <h5 class="center">Submission</h5>
-                            <p class="light">Submit any suggestions you have, and they will be made visible to both the student body and the school administrators.</p>
+                            <p class="light">Help make your school a better place! Submit any suggestions you have for Marist College, and they will be made visible to both the student body and the school administrators.</p>
                         </div>
                     </div>
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <h2 class="center brown-text"><i class="material-icons">assignment</i></h2>
                             <h5 class="center">Review</h5>
-                            <p class="light">View the other submissions made by other students.</p>
+                            <p class="light">View suggestions made by other students and vote on the best ideas.</p>
                         </div>
                     </div>
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <h2 class="center brown-text"><i class="material-icons">done</i></h2>
                             <h5 class="center">Implementation</h5>
-                            <p class="light">Get email updates on the status of your suggestions. Help make your school a better place.</p>
+                            <p class="light">Get feedback from school administrators on the status of your suggestions.</p>
                         </div>
                     </div>
                 </div>
@@ -211,27 +177,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="parallax-container valign-wrapper">
-            <div class="section no-pad-bot">
-                <div class="container">
-                    <div class="row center">
-                        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
-            </div>
-            <div class="container">
-            <div class="section">
-                <div class="row">
-                    <div class="col s12 center">
-                        <h3><i class="mdi-content-send brown-text"></i></h3>
-                        <h4>Contact Us</h4>
-                        <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-                    </div>
-                </div>
-            </div>
-            </div>-->
         <div class="parallax-container valign-wrapper">
             <div class="section no-pad-bot">
                 <div class="container">
@@ -269,11 +214,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="footer-copyright">
-                <div class="container">
-                    Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-                </div>
-            </div>-->
         </footer>
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

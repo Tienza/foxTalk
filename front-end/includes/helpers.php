@@ -1,6 +1,6 @@
 <?php
 
-$debug = true;
+$debug = false;
 
 # Inserts a suggestion into foxTalkDB
 function insert_item($date) {
@@ -94,7 +94,7 @@ function show_records($dbc) {
 				$date = format_date($row['submit_date'], "m/d/Y");
 				echo '<li>';
 					echo '<div style="text-align:left;vertical-align:top" class="collapsible-header"><b>' . $row['title'] .'</b></div>';
-					echo '<div style="text-align:left;vertical-align:top" class="collapsible-body card-panel grey">';
+					echo '<div style="text-align:left;vertical-align:top" class="collapsible-body card-panel grey lighten-2">';
 					echo '<div><span><b>Suggestion: </b></span>' . $row['description'] . '</div></br>';
 					echo '<div><span><b>Department: </b></span>' . $row['department'] . '</div></br>';
 					echo '<div><span><b>Status: </b></span>' . $row['status'] . '</div></br>';
@@ -204,7 +204,7 @@ function show_admin_records($status) {
 				$date = format_date($row['submit_date'], "m/d/Y");
 				echo '<li>';
 					echo '<div style="text-align:left;vertical-align:top" class="collapsible-header"><b>' . $row['title'] .'</b></div>';
-					echo '<div style="text-align:left;vertical-align:top" class="collapsible-body card-panel grey">';
+					echo '<div style="text-align:left;vertical-align:top" class="collapsible-body card-panel grey lighten-2">';
 					echo '<div style="text-align:right">';
 						echo '<span><a href="includes/update_status/statusApproved.php?sid=' . $row['sid'] . '" class="material-icons tooltipped" data-position="top" data-tooltip="Approve" style="color:#000000">check_box</a></span>';
 						echo '<span><a href="includes/update_status/statusPending.php?sid=' . $row['sid'] . '" class="material-icons tooltipped" data-tooltip="Under Review" style="color:#000000">indeterminate_check_box</a></span>';
@@ -260,77 +260,6 @@ function delete_item($sid){
     check_results($results);
 	
 }
-
-/*
-function show_admin_records($dbc) {
-    #$locations = get_locations();
-    
-	# Create a query to get title, date, and status, sorted by date
-    $query = 'SELECT * FROM submissions ORDER BY vote DESC';
-
-    # Execute the query
-    $results = mysqli_query( $dbc , $query );
-    
-    # Output SQL errors, if any
-    check_results($results);
-
-    # Show results, if query succeeded
-    if($results && mysqli_num_rows($results) > 0)
-    {	
-		echo '<ul class="collapsible" data-collapsible="accordion">';
-			while ( $row = mysqli_fetch_array($results , MYSQLI_ASSOC )){
-				$date = format_date($row['submit_date'], "m/d/Y");
-				echo '<li>';
-					echo '<div style="text-align:left;vertical-align:top" class="collapsible-header"><b>' . $row['title'] .'</b></div>';
-					echo '<div style="text-align:left;vertical-align:top" class="collapsible-body card-panel grey">';
-					echo '<div><span><b>SID: </b></span>' . $row['sid'] . '</div></br>';
-					echo '<div><span><b>CWID: </b></span>' . $row['cwid'] . '</div></br>';
-					echo '<div><span><b>First Name: </b></span>' . $row['submitter_fname'] . '</div></br>';
-					echo '<div><span><b>Last Name: </b></span>' . $row['submitter_lname'] . '</div></br>';
-					echo '<div><span><b>Votes: </b></span>' . $row['vote'] . '</div></br>';
-					echo '<div><span><b>Department: </b></span>' . $row['department'] . '</div></br>';
-					echo '<div><span><b>Suggestion: </b></span>' . $row['description'] . '</div></br>';
-					echo '<div><span><b>Status: </b></span>' . $row['status'] . '</div></br>';
-					#echo '<div style="text-align:right;vertical-align:top"><a class="btn-floating btn-large waves-effect waves-light red" href="includes/increment.php?id=' . $row['sid'] . '"><i class="material-icons">thumb_up</i></a><span style="color:blue"> ' . $row['vote'] . '</span></div>';
-					echo '</div>';
-				echo '</li>';
-			}
-		echo '</ul>';
-        /*echo "<table class=\"striped\">";
-		echo '<thead>';
-        echo '<tr>';
-        echo '<th>Title</th>';
-        echo '<th>Date</th>';
-		echo '</tr>';
-		echo '</th	ead>';
-		echo '<tbody>';
-
-        # For each row result, generate a table row
-        while ( $row = mysqli_fetch_array( $results , MYSQLI_ASSOC ) )
-        {
-            $date = format_date($row['submit_date'], "m/d/Y");
-            $title = $row['title'];
-            
-            echo '<tr>';
-            echo '<td>' . '<a class="modal-trigger" href=index.php?sid=' . $row['sid'] . '>' . $title . '</a>' . '</td>';
-            #echo '<td>' . $title . '</td>';
-            echo '<td>' . $date . '</td>';
-            #echo '<td>' . $category . '</td>';
-            #echo '<td>' . $row['status'] . '</td>';
-            echo '</tr>';
-        }
-		
-		echo '</tbody>';
-        # End the table
-        echo '</table>';
-    }
-    
-    else if(mysqli_num_rows($results) === 0)
-        echo '<script>$(document).ready(function() {$("#error").html("No results");});</script>';
-    
-    # Free up the results in memory
-    mysqli_free_result($results);
-}*/
 
 function format_date($date, $format) {
     $date = strtotime($date);

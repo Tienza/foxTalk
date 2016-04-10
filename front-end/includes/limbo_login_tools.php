@@ -37,20 +37,14 @@ function validate($user = '', $pass = '')
       return -1;
 
     # Make the query
-    $query = "SELECT user, pass FROM users WHERE user='" . $user . "'" . " AND pass='" . $pass . "'";
+    $query = "SELECT username, password FROM admins WHERE username='" . $user . "'" . " AND password='" . $pass . "'";
 
     # Execute the query
     $results = mysqli_query( $dbc, $query );
     #check_results($results);
 	
-	if($results === true)
-		echo '<div>$results = true</div>';
-	
-	else if($results === false)
-		echo '<div>$results = false</div>';
-	
     # If we get no rows, the login failed
-    else if (mysqli_num_rows( $results ) == 0 )
+    if (mysqli_num_rows( $results ) == 0 )
       return -1;
 
     # We have at least one row, so get the frist one and return it
