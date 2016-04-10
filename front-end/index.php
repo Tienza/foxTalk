@@ -87,7 +87,7 @@
 			<div class="section no-pad-bot">
                 <div class="container">
 					<br><br>
-				    <p class="center-align"><img id="seal" src="images/logo.png"></p>
+				    <div class="center-align"><img id="seal" src="images/logo.png"></div>
 					<h1 class="header center red-text text-darken-2">Marist Fox Talk</h1>
                     <br><br>
                 </div>

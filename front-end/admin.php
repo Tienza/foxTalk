@@ -54,15 +54,17 @@
                         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                         <ul class="right hide-on-med-and-down">
                             <li><a id="top">Top</a></li>
-                            <li><a id="button">Top Suggestions</a></li>
-                            <li><a id="button2">All Suggestions</a></li>
-                            <li><a id="button3">Blank</a></li>
+                            <li><a id="button">Submitted Suggestions</a></li>
+                            <li><a id="button2">Approved Suggestions</a></li>
+                            <li><a id="button3">Pending Suggestions</a></li>
+							<li><a id="button4">Rejected Suggestions</a></li>
                         </ul>
                         <ul class="side-nav" id="mobile-demo">
                             <li><a id="top">Top</a></li>
-                            <li><a id="button">Top Suggestions</a></li>
-                            <li><a id="button2">All Suggestions</a></li>
-                            <li><a id="button3">Blank</a></li>
+                            <li><a id="button">Submitted Suggestions</a></li>
+                            <li><a id="button2">Approved Suggestions</a></li>
+                            <li><a id="button3">Pending Suggestions</a></li>
+							<li><a id="button4">Rejected Suggestions</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,7 +74,7 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <br><br>
-                    <p class="center-align"><img id="seal" src="images/logo.png"></p>
+                    <div class="center-align"><img id="seal" src="images/logo.png"></div>
                     <h1 class="header center red-text text-darken-2">Marist Fox Talk</h1>
                     <br><br>
                 </div>
@@ -96,7 +98,7 @@
         <div class="container">
             <div class="section">
                 <!--   Submitted Suggestions   -->
-                <div id="topSug"></br></br></br></div>
+                <div id="subSug"></br></br></br></div>
                 <div class="row">
                     <div class="col s12 center">
                         <h3><i class="mdi-content-send brown-text"></i></h3>
@@ -107,7 +109,7 @@
                     </div>
                 </div>
                 <!--   Approved Submissions   -->
-                <div id="allSug"></br></br></br></div>
+                <div id="appSug"></br></br></br></div>
                 <div class="row">
                     <div class="col s12 center">
                         <h4>Approved Suggestions</h4>
@@ -117,7 +119,7 @@
                     </div>
                 </div>
                 <!--   Pending Suggestions (Under Review)   -->
-                <div id="blank"></br></br></br></div>
+                <div id="penSug"></br></br></br></div>
                 <div class="row">
                     <div class="col s12">
                         <h4 class="center-align" id="subTable">Pending Suggestions</h4>
@@ -126,6 +128,8 @@
                         ?>
                     </div>
                 </div>
+				<!--   Rejected Suggestions   -->
+				<div id="rejSug"></br></br></br></div>
 				<div class="row">
                     <div class="col s12">
                         <h4 class="center-align" id="rejectedSuggestions">Rejected Suggestions</h4>
@@ -202,37 +206,42 @@
             });
             $("#button").click(function() {
             $('html, body').animate({
-            scrollTop: $("#topSug").offset().top
+            scrollTop: $("#subSug").offset().top
             }, 500);
             });
             $(".side-nav #button").click(function() {
             $('html, body').animate({
-            scrollTop: $("#topSug").offset().top
+            scrollTop: $("#subSug").offset().top
             }, 500);
             });
             $("#button2").click(function() {
             $('html, body').animate({
-            scrollTop: $("#allSug").offset().top
+            scrollTop: $("#appSug").offset().top
             }, 500);
             });
             $(".side-nav #button2").click(function() {
             $('html, body').animate({
-            scrollTop: $("#allSug").offset().top
+            scrollTop: $("#appSug").offset().top
             }, 500);
             });
             $("#button3").click(function() {
             $('html, body').animate({
-            scrollTop: $("#blank").offset().top
+            scrollTop: $("#penSug").offset().top
             }, 500);
             });
             $(".side-nav #button3").click(function() {
             $('html, body').animate({
-            scrollTop: $("#blank").offset().top
+            scrollTop: $("#penSug").offset().top
             }, 500);
             });
-            $(".modal-action modal-close waves-effect waves-green btn-flat #modalClose").click(function() {
+            $("#button4").click(function() {
             $('html, body').animate({
-            scrollTop: $("#subTable").offset().top
+            scrollTop: $("#rejSug").offset().top
+            }, 500);
+            });
+            $(".side-nav #button4").click(function() {
+            $('html, body').animate({
+            scrollTop: $("#rejSug").offset().top
             }, 500);
             });
         </script>
