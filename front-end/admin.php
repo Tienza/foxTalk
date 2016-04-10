@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
         <link rel="icon" href="http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2368.png&w=80&h=80&transparent=true" type="image/png" sizes="16x16">
-        <title>Fox Talk</title>
+        <title>FoxTalk Admin</title>
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -67,6 +67,7 @@
                             <li><a id="button2">Approved Suggestions</a></li>
                             <li><a id="button3">Pending Suggestions</a></li>
 							<li><a id="button4">Rejected Suggestions</a></li>
+							<li><a id="button5" href="logout.php">Sign out</a></li>
                         </ul>
                         <ul class="side-nav" id="mobile-demo">
                             <li><a id="top">Top</a></li>
@@ -74,6 +75,7 @@
                             <li><a id="button2">Approved Suggestions</a></li>
                             <li><a id="button3">Pending Suggestions</a></li>
 							<li><a id="button4">Rejected Suggestions</a></li>
+							<li><a id="button5" href="logout.php">Sign out</a></li>
                         </ul>
                     </div>
                 </nav>

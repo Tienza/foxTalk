@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Limbo Admin | Login</title>
+        <title>FoxTalk Admin | Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Compiled and minified CSS -->
@@ -126,7 +126,7 @@ and open the template in the editor.
             <nav class="top-nav">
                 <div class="container">
                     <div class="nav-wrapper">
-                        <a class="page-title" id="title">Limbo Administrator Database</a>
+                        <a class="page-title" id="title">FoxTalk Administrator Database</a>
                     </div>
                 </div>
             </nav>
@@ -142,7 +142,7 @@ and open the template in the editor.
                 <ul id="slide-out" class="side-nav fixed">
                     <p align="center"><img height="150px" width="150px" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Marist_College_Seal_-_Vector.svg/1016px-Marist_College_Seal_-_Vector.svg.png"/></p>
                     <li><a href="login.php">Login Page</a></li>
-                    <li><a href="..\index.php">Main Page</a></li>
+                    <li><a href="index.php">Main Page</a></li>
                 </ul>
                 <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
             </div>
