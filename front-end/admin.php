@@ -54,7 +54,7 @@
             <div class="navbar-fixed white">
                 <nav>
                     <div class="nav-wrapper container">
-                        <a href="#!" class="brand-logo">Fox Talk</a>
+                        <a href="#!" class="brand-logo">FoxTalk</a>
                         <!--<ul class="right hide-on-med-and-down">
                             <li><a id="button">What are we?</a></li>
                             <li><a id="button2">View Suggestions</a></li>
@@ -86,7 +86,7 @@
                 <div class="container">
                     <br><br>
                     <div class="center-align"><img id="seal" src="images/logo.png"></div>
-                    <h1 class="header center red-text text-darken-2">Marist Fox Talk</h1>
+                    <h1 class="header center red-text text-darken-2">Marist FoxTalk</h1>
                     <br><br>
                 </div>
             </div>
