@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS submissions (
     submitter_lname  TEXT,
     department       SET("Dining", "Housing", "IT", "Parking", "Registration", "Other") NOT NULL,
     status           SET("Submitted", "Under Review", "Approved", "Rejected") NOT NULL,
-	vote			 INT NOT NULL DEFAULT 0 
+	vote			 INT        NOT NULL DEFAULT 0
 );
 
 -- Create the Users table

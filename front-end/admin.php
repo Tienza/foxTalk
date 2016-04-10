@@ -12,12 +12,12 @@
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <style>
             #seal {
-				user-drag: none; 
-				user-select: none;
-				-moz-user-select: none;
-				-webkit-user-drag: none;
-				-webkit-user-select: none;
-				-ms-user-select: none;
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
             }
         </style>
         <?php
@@ -25,37 +25,22 @@
             require('includes/connect_db.php');
             
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-				//insert
-				insert_item(date('Y-m-d H:i:s'));
-				//echo '<script>$(document).ready(function () {$("#success").html("Success! Your suggestion has been submitted.");});</script>';
-				
-				//reset $_POST variable
-				$_POST = array();
-				header("location: bounce.php");
-
-			}
-			if($_SERVER['REQUEST_METHOD'] == 'GET') {
-				//reset $_POST variable
-				$_POST = array();
-			}
-        ?>
+            //insert
+            insert_item(date('Y-m-d H:i:s'));
+            //echo '<script>$(document).ready(function () {$("#success").html("Success! Your suggestion has been submitted.");});</script>';
+            
+            //reset $_POST variable
+            $_POST = array();
+            header("location: bounce.php");
+            
+            }
+            if($_SERVER['REQUEST_METHOD'] == 'GET') {
+            //reset $_POST variable
+            $_POST = array();
+            }
+            ?>
     </head>
     <body id="topPage">
-  <!-- Modal Structure
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Suggestion Details</h4>
-	  <p>
-		<?php
-            if(isset($_GET['sid']))
-                show_admin_record($_GET['sid']);
-		?>
-	  </p>
-    </div>
-    <div class="modal-footer">
-      <a id="modalClose" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
-    </div>
-  </div>-->
         <nav class="navbar-fixed white" role="navigation">
             <div class="navbar-fixed white">
                 <nav>
@@ -84,11 +69,11 @@
             </div>
         </nav>
         <div id="index-banner" class="parallax-container">
-			<div class="section no-pad-bot">
+            <div class="section no-pad-bot">
                 <div class="container">
-					<br><br>
-				    <p class="center-align"><img id="seal" src="images/logo.png"></p>
-					<h1 class="header center red-text text-darken-2">Marist Fox Talk</h1>
+                    <br><br>
+                    <p class="center-align"><img id="seal" src="images/logo.png"></p>
+                    <h1 class="header center red-text text-darken-2">Marist Fox Talk</h1>
                     <br><br>
                 </div>
             </div>
@@ -105,114 +90,52 @@
                     </div>
                     <br><br>
                 </div>
-            </div>-->
+                </div>-->
             <div class="parallax"><img src="images/rotunda.jpg" alt="Unsplashed background img 1"></div>
         </div>
         <div class="container">
             <div class="section">
-                <!--   Description   -->
+                <!--   Submitted Suggestions   -->
                 <div id="topSug"></br></br></br></div>
                 <div class="row">
                     <div class="col s12 center">
                         <h3><i class="mdi-content-send brown-text"></i></h3>
-                        <h4>Top Suggestions</h4>
-						<?php
-							show_top_admin_records($dbc);
-						?>
-					</div>
-				</div>
-                <!--   View Submissions   -->
+                        <h4>Submitted Suggestions</h4>
+                        <?php
+                            show_admin_records("Submitted");
+                        ?>
+                    </div>
+                </div>
+                <!--   Approved Submissions   -->
                 <div id="allSug"></br></br></br></div>
                 <div class="row">
                     <div class="col s12 center">
-                        <h3><i class="mdi-content-send brown-text"></i></h3>
-                        <h4>All Suggestions</h4>
-						<?php
-							show_admin_records($dbc);
-						?>
-					</div>
-				</div>
-                <!--   Submitt Suggestions   -->
+                        <h4>Approved Suggestions</h4>
+                        <?php
+                            show_admin_records("Approved");
+                        ?>
+                    </div>
+                </div>
+                <!--   Pending Suggestions (Under Review)   -->
                 <div id="blank"></br></br></br></div>
                 <div class="row">
                     <div class="col s12">
-                        <h4 class="center-align" id="subTable">Talk To Us</h4>
-                        <!--<div class="row">
-                            <form class="col s12" action="index.php" method="POST">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="Ex: John/Jane" required name="first_name" type="text" class="validate" value="<?php if(isset($_POST['first_name'])) echo $_POST['first_name']; ?>">
-                                        <label for="first_name">First Name</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input placeholder="Ex: Doe" required name="last_name" type="text" class="validate" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
-                                        <label for="last_name">Last Name</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="Ex: 200XXXXX" required name="cwid" type="number" pattern=".{8,8}" class="validate" value="<?php if(isset($_POST['cwid'])) echo $_POST['cwid']; ?>">
-                                        <label for="cwid">CWID</label>
-                                    </div>
-                                </div>
-								<div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="Ex: Please wash cups properly" required name="title" type="text" class="validate" value="<?php if(isset($_POST['title'])) echo $_POST['title']; ?>">
-                                        <label for="cwid">Title</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea required name="description" class="materialize-textarea" value="<?php if(isset($_POST['description'])) echo $_POST['description']; ?>"></textarea>
-                                        <label for="description">Suggestion</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <select required name="department" value="<?php if(isset($_POST['department'])) echo $_POST['department']; ?>">
-                                            <option value="" disabled selected>Choose your option</option>
-                                            <option value="Dining">Dining</option>
-                                            <option value="Housing">Housing</option>
-                                            <option value="Registration">Registration</option>
-                                            <option value="IT">Information Technology</option>
-                                            <option value="Parking">Parking</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                        <label>Designated Department</label>
-                                    </div>
-                                    <div class="input-field col s6 right-align">
-                                        <button class="btn waves-effect red accent-4 waves-light" type="submit">Submit
-                                        <i class="material-icons right">send</i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>-->
+                        <h4 class="center-align" id="subTable">Pending Suggestions</h4>
+                        <?php
+                            show_admin_records("Under Review");
+                        ?>
+                    </div>
+                </div>
+				<div class="row">
+                    <div class="col s12">
+                        <h4 class="center-align" id="rejectedSuggestions">Rejected Suggestions</h4>
+                        <?php
+                            show_admin_records("Rejected");
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
-        <!--<div class="parallax-container valign-wrapper">
-            <div class="section no-pad-bot">
-                <div class="container">
-                    <div class="row center">
-                        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
-            </div>
-            <div class="container">
-            <div class="section">
-                <div class="row">
-                    <div class="col s12 center">
-                        <h3><i class="mdi-content-send brown-text"></i></h3>
-                        <h4>Contact Us</h4>
-                        <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-                    </div>
-                </div>
-            </div>
-            </div>-->
         <div class="parallax-container valign-wrapper">
             <div class="section no-pad-bot">
                 <div class="container">
@@ -250,11 +173,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="footer-copyright">
-                <div class="container">
-                    Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-                </div>
-            </div>-->
         </footer>
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -263,10 +181,11 @@
         <script>
             $(document).ready(function() {
             $('select').material_select();
+			$('.tooltipped').tooltip({delay: 50});
             $(".button-collapse").sideNav();
-			$('.modal-trigger').leanModal();
+            $('.modal-trigger').leanModal();
             });
-			// Display suggestion detail modal if window contains "sid?=" and an sid number
+            // Display suggestion detail modal if window contains "sid?=" and an sid number
             var str = window.location.href;
                 
             /*if(str.indexOf("?sid=") > -1)
@@ -311,7 +230,7 @@
             scrollTop: $("#blank").offset().top
             }, 500);
             });
-			$(".modal-action modal-close waves-effect waves-green btn-flat #modalClose").click(function() {
+            $(".modal-action modal-close waves-effect waves-green btn-flat #modalClose").click(function() {
             $('html, body').animate({
             scrollTop: $("#subTable").offset().top
             }, 500);
