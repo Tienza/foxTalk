@@ -59,3 +59,8 @@ VALUES (1, 20055555, '2016-04-10 06:32:09', 'Please wash cups properly', 'Someti
 EXPLAIN users;
 EXPLAIN admins;
 EXPLAIN submissions;
+
+-- Show test data
+SELECT sid, cwid, submit_date, title, department, status, vote
+FROM submissions
+ORDER BY vote DESC;
