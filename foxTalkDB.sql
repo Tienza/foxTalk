@@ -28,14 +28,21 @@ CREATE TABLE IF NOT EXISTS submissions (
 
 -- Create the Users table
 CREATE TABLE IF NOT EXISTS users (
-    uid       INT AUTO_INCREMENT PRIMARY KEY,
-    username  TEXT NOT NULL,
-    password  TEXT NOT NULL
+    uid       INT   AUTO_INCREMENT PRIMARY KEY,
+    username  TEXT  NOT NULL,
+    password  TEXT  NOT NULL,
+	salt	  TEXT  NOT NULL
 );
 
 -- Create the Admins table
 CREATE TABLE IF NOT EXISTS admins (
-    aid       INT AUTO_INCREMENT PRIMARY KEY,
-    username  TEXT NOT NULL,
-    password  TEXT NOT NULL
+    aid       INT   AUTO_INCREMENT PRIMARY KEY,
+    username  TEXT  NOT NULL,
+    password  TEXT  NOT NULL,
+	salt	  TEXT  NOT NULL
 );
+
+-- Print database tables and fields to show that all of this worked
+EXPLAIN users;
+EXPLAIN admins;
+EXPLAIN submissions;
