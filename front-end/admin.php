@@ -23,6 +23,15 @@
         <?php
             require('includes/helpers.php');
             require('includes/connect_db.php');
+			require('includes/limbo_login_tools.php');
+			
+			session_start();
+					
+			# redirect to login page if there is no session open
+			if(!isset($_SESSION['login_user'])){
+				session_destroy();
+				load('login.php');
+			}	
             
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
             //insert

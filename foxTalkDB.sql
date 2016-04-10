@@ -42,6 +42,10 @@ CREATE TABLE IF NOT EXISTS admins (
 	salt	  TEXT  NOT NULL
 );
 
+-- Insert our first admin into the table, with hash and salt
+INSERT INTO admins (username, password, salt)
+	VALUES ("admin", "$2y$12$a161bd8b4b7bda7313255uJEXV2e7JysLYdmTJ9yFpJ16LlizHQZS", "a161bd8b4b7bda7313255855e3550967f2437dea");
+
 -- Print database tables and fields to show that all of this worked
 EXPLAIN users;
 EXPLAIN admins;
